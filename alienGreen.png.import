@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/alienGreen_walk1.png-27705f34f4c7a73a8c05a5aabab636ab.stex"
+path="res://.import/alienGreen.png-09268084aee2d34c448a5944ecf52c72.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alienGreen_walk1.png"
-dest_files=[ "res://.import/alienGreen_walk1.png-27705f34f4c7a73a8c05a5aabab636ab.stex" ]
+source_file="res://alienGreen.png"
+dest_files=[ "res://.import/alienGreen.png-09268084aee2d34c448a5944ecf52c72.stex" ]
 
 [params]
 

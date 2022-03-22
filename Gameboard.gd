@@ -10,6 +10,10 @@ onready var player_character: Node2D = $PC
 func _ready() -> void:
 	var player_cell = grid.calculate_grid_coordinates(player_character.position)
 	player_character.position = grid.calculate_map_position(player_cell)
+	
+	for child in $NPCs.get_children():
+		var child_cell = grid.calculate_grid_coordinates(child.position)
+		child.position = grid.calculate_map_position(child_cell)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -28,6 +32,17 @@ func _move_player_character(direction: Vector2) -> void:
 	var target_cell = player_cell + direction
 	var walls: Array = get_node("Map/Walls").get_used_cells()
 	
+	var valid_target := true
 	# Check to see if anything is occupying target_cell
-	if !(target_cell in walls):
+	if target_cell in walls:
+		valid_target = false
+	
+	# Check to see if any unit is occupying target_cell
+	for child in $NPCs.get_children():
+		var child_cell = grid.calculate_grid_coordinates(child.position)
+		if target_cell == child_cell:
+			valid_target = false
+			break
+	
+	if valid_target:
 		player_character.position += direction * grid.cell_size.x
