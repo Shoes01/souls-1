@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://dungeon-tileset.png" type="Texture" id=1]
+[ext_resource path="res://assets/dungeon-tileset.png" type="Texture" id=1]
 
 [sub_resource type="TileSet" id=1]
 0/name = "dungeon-tileset.png 0"

@@ -2,7 +2,8 @@ class_name GameBoard
 extends Node
 
 
-var grid: Grid = preload("res://Grid.tres")
+export var combat_engine: Resource = preload("res://CombatEngine.tres")
+export var grid: Resource = preload("res://Grid.tres")
 
 onready var player_character: Node2D = $PC
 
@@ -30,9 +31,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func _move_player_character(direction: Vector2) -> void:
 	var player_cell = grid.calculate_grid_coordinates(player_character.position)
 	var target_cell = player_cell + direction
-	var walls: Array = get_node("Map/Walls").get_used_cells()
+	var walls: Array = $Map/Walls.get_used_cells()
 	
 	var valid_target := true
+	if not grid.is_within_bounds(target_cell):
+		valid_target = false
+	
 	# Check to see if anything is occupying target_cell
 	if target_cell in walls:
 		valid_target = false
@@ -41,6 +45,7 @@ func _move_player_character(direction: Vector2) -> void:
 	for child in $NPCs.get_children():
 		var child_cell = grid.calculate_grid_coordinates(child.position)
 		if target_cell == child_cell:
+			combat_engine.physical_combat(player_character, child)
 			valid_target = false
 			break
 	

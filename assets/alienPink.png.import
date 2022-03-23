@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/alienPink.png-14a2c4966c11b9fa176264d2e5326648.stex"
+path="res://.import/alienPink.png-4edc023e896f6656fa4fb1b5943583da.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://alienPink.png"
-dest_files=[ "res://.import/alienPink.png-14a2c4966c11b9fa176264d2e5326648.stex" ]
+source_file="res://assets/alienPink.png"
+dest_files=[ "res://.import/alienPink.png-4edc023e896f6656fa4fb1b5943583da.stex" ]
 
 [params]
 

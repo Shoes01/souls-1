@@ -1,12 +1,12 @@
 # DONE
 PC can move
 PC can't move through walls
-
-# TODO
 Add dummy NPC
 PC can't move through units
 Enable Bump Attack
     Can kill NPC
+
+# TODO
 Enable Ranged Attack
 
 # TODO EVENTUALLY

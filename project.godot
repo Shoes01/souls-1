@@ -10,6 +10,16 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://Actor.gd"
+}, {
+"base": "Resource",
+"class": "CombatEngine",
+"language": "GDScript",
+"path": "res://CombatEngine.gd"
+}, {
+"base": "Node",
 "class": "GameBoard",
 "language": "GDScript",
 "path": "res://Gameboard.gd"
@@ -20,6 +30,8 @@ _global_script_classes=[ {
 "path": "res://Grid.gd"
 } ]
 _global_script_class_icons={
+"Actor": "",
+"CombatEngine": "",
 "GameBoard": "",
 "Grid": ""
 }
@@ -27,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Souls-game-1"
-config/icon="res://icon.png"
+config/icon="res://assets/icon.png"
 
 [physics]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dungeon-tileset.png-d5a7cfbe9c6909dd3e070994f1c49862.stex"
+path="res://.import/alienGreen.png-32940b0ade5b2e899aee81bb14a379f6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dungeon-tileset.png"
-dest_files=[ "res://.import/dungeon-tileset.png-d5a7cfbe9c6909dd3e070994f1c49862.stex" ]
+source_file="res://assets/alienGreen.png"
+dest_files=[ "res://.import/alienGreen.png-32940b0ade5b2e899aee81bb14a379f6.stex" ]
 
 [params]
 
