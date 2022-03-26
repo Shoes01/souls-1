@@ -12,14 +12,13 @@
 script = ExtResource( 3 )
 
 [node name="PC" type="Node2D" parent="Gameboard"]
-position = Vector2( 26, 40 )
+position = Vector2( 179, 68 )
 script = ExtResource( 5 )
 hp = 10
 attack = 5
 
 [node name="Sprite" type="Sprite" parent="Gameboard/PC"]
-position = Vector2( 0, -5 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 0, -10 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -30,4 +29,4 @@ __meta__ = {
 [node name="NPCs" type="Node" parent="Gameboard"]
 
 [node name="NPC" parent="Gameboard/NPCs" instance=ExtResource( 4 )]
-position = Vector2( 147, 66 )
+position = Vector2( 223, 108 )

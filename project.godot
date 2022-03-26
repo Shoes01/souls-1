@@ -28,17 +28,24 @@ _global_script_classes=[ {
 "class": "Grid",
 "language": "GDScript",
 "path": "res://Grid.gd"
+}, {
+"base": "Node",
+"class": "Soul",
+"language": "GDScript",
+"path": "res://Soul.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
 "CombatEngine": "",
 "GameBoard": "",
-"Grid": ""
+"Grid": "",
+"Soul": ""
 }
 
 [application]
 
 config/name="Souls-game-1"
+run/main_scene="res://Main.tscn"
 config/icon="res://assets/icon.png"
 
 [physics]
