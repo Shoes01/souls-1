@@ -2,16 +2,15 @@ class_name CombatEngine
 extends Resource
 
 func physical_combat(attacker: Actor, defender: Actor) -> void:
-	var damage_output = attacker.attack - defender.defense
+	var damage_output = attacker.get_stat(Global.Stat.STAT_ATK) - defender.get_stat(Global.Stat.STAT_DEF)
 	if damage_output < 0:
 		damage_output = 0
 	
-	if attacker.speed > defender.speed + 5:
+	if attacker.get_stat(Global.Stat.STAT_SPD) > defender.get_stat(Global.Stat.STAT_SPD) + 5:
 		damage_output *= 2
 	
 	print("Attacker deals ", damage_output, " to defender.")
-	defender.hp -= damage_output
+	defender.reduce_stat(Global.Stat.STAT_HP, damage_output)
 	
-	if defender.hp < 0:
-		defender.hp = 0
+	if defender.get_stat(Global.Stat.STAT_HP) < 0:
 		defender.die()

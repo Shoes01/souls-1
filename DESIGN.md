@@ -44,6 +44,12 @@ Similar Jobs could have similar-look stat matrices, and this is how things would
 Leveling up could even be tied into the size of the soul. 
 > How would mis-matched souls match? Just put a 0 at all the values "outside" the soul?
 
+### Null values
+Null ATK and MAG means can't attack
+Null DEF or RES means soul-HP is lost directly
+Null SPD means enemies move twice per turn (and thus attack twice per turn, and thus hit you 4 times per turn)
+Cannot have Null HP.
+
 ## The HP problem
 HP has to be significantly larger than the other numbers. Otherwise everything will be a OHK.
 `Solution:` The player will have a certain amount of HP, and when that value reaches 0, then their soul-HP takes damage.
@@ -60,6 +66,10 @@ If there are Merchants in the game, the player will purchase items using their S
 > Because the Job dictates how the Soul is assigned to stats, it doesn't make sense to pay a Merchant using "SPD"
 > Instead, the Merchant will ask you to pay using your highest (or lowest, or whatever-est) stat.
 >> Perhaps items can be "expensive" by costing your lower stats -- and that you can't pay if it is negative. 
+
+## DEF + RES > HP problem
+DEF and RES are better than HP because they don't go down.
+To mitigate this, HP should grant armor-HP as well. So even with no items, a player with 5 HP would need to take 5 damage before losing 1 HP. 
 
 # CORE MECHANIC 2 -- JOBS
 An Actor will have a Job - like a class... but a job.

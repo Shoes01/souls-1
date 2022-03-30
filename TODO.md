@@ -8,7 +8,15 @@ Enable Bump Attack
 Make sprites bigger.
 
 ## SOULS MECHANIC
-- Implement the Soul object.
+__Done (I think)__
+- Implement the Soul object. 
+
+__Current__
+I am trying to get the souls-jobs to pair up their stats and values, and have CombatEngine make use of that.
+BUG: my Recruit resource is not able to set its own name/description/anything.
+        I am clearly doing something wrong with resources.
+
+__Todo__
 - UI to view the player stats, including the soul.
 - Killed NPCs need to drop a soul-item that can be picked up and consumed
     As a stop-gap, walking over the soul could pick it up and consume it without player input.

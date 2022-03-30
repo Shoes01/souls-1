@@ -3,18 +3,25 @@ extends Node
 
 
 export var combat_engine: Resource = preload("res://CombatEngine.tres")
-export var grid: Resource = preload("res://Grid.tres")
+export var grid: Resource = preload("res://board/Grid.tres")
 
-onready var player_character: Node2D = $PC
+onready var player_character: Actor = load("res://actor/Actor.tscn").instance()
 
 
 func _ready() -> void:
-	var player_cell = grid.calculate_grid_coordinates(player_character.position)
-	player_character.position = grid.calculate_map_position(player_cell)
+	# Prepare PC
+	add_child(player_character)
+	player_character.make("pc")
+	player_character.position = grid.calculate_map_position(Vector2(3, 3))
 	
-	for child in $NPCs.get_children():
-		var child_cell = grid.calculate_grid_coordinates(child.position)
-		child.position = grid.calculate_map_position(child_cell)
+	
+	# Prepare NPC
+	var npc: Actor= load("res://actor/Actor.tscn").instance()
+	add_child(npc)
+	npc.make("npc")
+	npc.position = grid.calculate_map_position(Vector2(3, 5))
+	npc.add_to_group("npcs")
+	
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -42,7 +49,8 @@ func _move_player_character(direction: Vector2) -> void:
 		valid_target = false
 	
 	# Check to see if any unit is occupying target_cell
-	for child in $NPCs.get_children():
+	var npcs = get_tree().get_nodes_in_group("npcs")
+	for child in npcs:
 		var child_cell = grid.calculate_grid_coordinates(child.position)
 		if target_cell == child_cell:
 			combat_engine.physical_combat(player_character, child)

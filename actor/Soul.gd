@@ -6,19 +6,22 @@ var soul = [
 	[1, 2, 3],
 	[4, 5, 6],
 	[7, 8, 9]
-]
+] setget set_soul, get_soul
 
 
-func _ready() -> void:
-	#_create_with_dimensions(2, 5)
-	pass
+func get_soul() -> Array:
+	return soul
+
+
+func set_soul(value: Array) -> void:
+	soul = value
 
 
 func create_with_dimensions(rows: int, columns: int) -> void:
 	var new_soul = []
 	for x in range(0, rows):
 		new_soul.append([])
-		for y in range(0, columns):
+		for _y in range(0, columns):
 			new_soul[x].append(0)
 	
 	soul = new_soul
@@ -48,3 +51,12 @@ func merge_with(new_soul: Array) -> void:
 	for x in range(0, len(new_soul)):
 		for y in range(0, len(new_soul[x])):
 			soul[x][y] += new_soul[x][y]
+
+
+func get_row_count() -> int:
+	return len(soul)
+
+
+func get_column_count()  -> int:
+	return len(soul[0])
+

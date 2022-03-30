@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Node2D",
 "class": "Actor",
 "language": "GDScript",
-"path": "res://Actor.gd"
+"path": "res://actor/Actor.gd"
 }, {
 "base": "Resource",
 "class": "CombatEngine",
@@ -22,23 +22,29 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "GameBoard",
 "language": "GDScript",
-"path": "res://Gameboard.gd"
+"path": "res://board/Gameboard.gd"
 }, {
-"base": "Resource",
+"base": "Reference",
 "class": "Grid",
 "language": "GDScript",
-"path": "res://Grid.gd"
+"path": "res://board/Grid.gd"
+}, {
+"base": "Node",
+"class": "Job",
+"language": "GDScript",
+"path": "res://actor/Job.gd"
 }, {
 "base": "Node",
 "class": "Soul",
 "language": "GDScript",
-"path": "res://Soul.gd"
+"path": "res://actor/Soul.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
 "CombatEngine": "",
 "GameBoard": "",
 "Grid": "",
+"Job": "",
 "Soul": ""
 }
 
@@ -47,6 +53,10 @@ _global_script_class_icons={
 config/name="Souls-game-1"
 run/main_scene="res://Main.tscn"
 config/icon="res://assets/icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [physics]
 
