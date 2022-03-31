@@ -1,29 +1,29 @@
 # DONE
 PC can move
-PC can't move through walls
-Add dummy NPC
-PC can't move through units
+    PC can't move through walls
+    PC can't move through units
 Enable Bump Attack
     Can kill NPC
-Make sprites bigger.
+
 
 ## SOULS MECHANIC
-__Done (I think)__
-- Implement the Soul object. 
+__Done__
+- Implement Actor
+    - Implemet Soul, tied into CombatEngine
+    - Implement Job
 
 __Current__
-I am trying to get the souls-jobs to pair up their stats and values, and have CombatEngine make use of that.
-BUG: my Recruit resource is not able to set its own name/description/anything.
-        I am clearly doing something wrong with resources.
+- UI to view PC stats, including soul.
+    - ISSUE: Need to track gamestate in order to block input to PC while menus are open.
 
 __Todo__
-- UI to view the player stats, including the soul.
 - Killed NPCs need to drop a soul-item that can be picked up and consumed
-    As a stop-gap, walking over the soul could pick it up and consume it without player input.
+    > As a stop-gap, walking over the soul could pick it up and consume it without player input.
 - Consuming a soul needs its own UI and controls.
     - A UI to see the result of soul consumption
     - Controls to manipulate how the soul will be consumed
     - Consuming the soul changes the player soul
+
 
 ### SOUL OBJECT
 I think at the moment this is just 6 integers wrapped in a matrix. 

@@ -2,6 +2,10 @@ class_name Actor
 extends Node2D
 
 
+onready var job = $Job
+onready var soul = $Soul
+
+
 func die() -> void:
 	print("This unit is dead.")
 	queue_free()
@@ -12,6 +16,7 @@ func make(value: String) -> void:
 		$Job._make("recruit")
 		$Soul.set_soul([[6, 3, 10], [6, 3, 10]])
 		$Sprite.set_flip_h(true)
+		add_to_group("npcs")
 	if value == "pc":
 		$Job._make("recruit")
 		$Soul.set_soul([[10, 5, 1], [10, 5, 1]])

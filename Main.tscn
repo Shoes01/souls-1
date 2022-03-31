@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://board/Gameboard.gd" type="Script" id=3]
+[ext_resource path="res://ui/UI.gd" type="Script" id=4]
+[ext_resource path="res://ui/CharacterMenu.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node"]
+script = ExtResource( 1 )
 
 [node name="Gameboard" type="YSort" parent="."]
 script = ExtResource( 3 )
 
 [node name="Map" parent="Gameboard" instance=ExtResource( 2 )]
+
+[node name="UI" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="CharacterMenu" parent="UI" instance=ExtResource( 5 )]
+visible = false

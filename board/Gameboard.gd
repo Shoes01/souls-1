@@ -2,6 +2,8 @@ class_name GameBoard
 extends Node
 
 
+signal open_character_menu(actor)
+
 export var combat_engine: Resource = preload("res://CombatEngine.tres")
 export var grid: Resource = preload("res://board/Grid.tres")
 
@@ -20,19 +22,27 @@ func _ready() -> void:
 	add_child(npc)
 	npc.make("npc")
 	npc.position = grid.calculate_map_position(Vector2(3, 5))
-	npc.add_to_group("npcs")
-	
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	# This can probably be streamlined, but eh.
 	if event.is_action_pressed("ui_right"):
 		_move_player_character(Vector2.RIGHT)
+		get_tree().set_input_as_handled()
 	elif event.is_action_pressed("ui_up"):
 		_move_player_character(Vector2.UP)
+		get_tree().set_input_as_handled()
 	elif event.is_action_pressed("ui_left"):
 		_move_player_character(Vector2.LEFT)
+		get_tree().set_input_as_handled()
 	elif event.is_action_pressed("ui_down"):
 		_move_player_character(Vector2.DOWN)
+		get_tree().set_input_as_handled()
+	
+	if event.is_action_pressed("custom_character_menu_open"):
+		# open the character menu, probably via signal.
+		emit_signal("open_character_menu", player_character)
+		get_tree().set_input_as_handled()
 
 
 func _move_player_character(direction: Vector2) -> void:
