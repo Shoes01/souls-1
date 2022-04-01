@@ -2,7 +2,7 @@ class_name GameBoard
 extends Node
 
 
-signal open_character_menu(actor)
+signal opened_character_menu(actor)
 
 export var combat_engine: Resource = preload("res://CombatEngine.tres")
 export var grid: Resource = preload("res://board/Grid.tres")
@@ -25,6 +25,8 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Global.game_state[-1] != Global.State.STATE_GAME: return
+	
 	# This can probably be streamlined, but eh.
 	if event.is_action_pressed("ui_right"):
 		_move_player_character(Vector2.RIGHT)
@@ -41,7 +43,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("custom_character_menu_open"):
 		# open the character menu, probably via signal.
-		emit_signal("open_character_menu", player_character)
+		emit_signal("opened_character_menu", player_character)
 		get_tree().set_input_as_handled()
 
 

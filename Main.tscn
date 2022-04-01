@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://board/Gameboard.gd" type="Script" id=3]
 [ext_resource path="res://ui/UI.gd" type="Script" id=4]
 [ext_resource path="res://ui/CharacterMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Debug.gd" type="Script" id=6]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -19,3 +20,12 @@ script = ExtResource( 4 )
 
 [node name="CharacterMenu" parent="UI" instance=ExtResource( 5 )]
 visible = false
+
+[node name="Debug" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="Debug"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+margin_right = 40.0
