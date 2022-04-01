@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 
 func _on_game_state_has_changed() -> void:
