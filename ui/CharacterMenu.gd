@@ -1,13 +1,16 @@
 extends Control
 
 
-onready var body = $Panel/RichTextLabel
+onready var body: Node = $Panel/RichTextLabel
 
 
 func open_menu(actor: Actor) -> void:
 	var text : String
 	
-	text = actor.job.get_name()
+	var job_name: String = actor.job.get_name()
+	var soul: String = actor.soul.get_soul_string()
+	
+	text = job_name + "\n" + soul
 	
 	body.set_text(text)
 	

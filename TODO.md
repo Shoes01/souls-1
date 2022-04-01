@@ -14,7 +14,6 @@ __Done__
 
 __Current__
 - UI to view PC stats, including soul.
-    - ISSUE: Need to track gamestate in order to block input to PC while menus are open.
 
 __Todo__
 - Killed NPCs need to drop a soul-item that can be picked up and consumed

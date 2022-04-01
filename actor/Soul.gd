@@ -13,6 +13,19 @@ func get_soul() -> Array:
 	return soul
 
 
+func get_soul_string() -> String:
+	var soul_string: String = ""
+	for x in range(0, len(soul)):
+		soul_string += "["
+		for y in range(0, len(soul[0])):
+			var string: String = "%4d, " % soul[x][y]
+			soul_string += string
+		soul_string.erase(soul_string.length() - 2, 2)
+		soul_string += "]\n"
+	
+	return soul_string
+
+
 func set_soul(value: Array) -> void:
 	soul = value
 
