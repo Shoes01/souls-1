@@ -4,10 +4,10 @@ extends Node
 signal game_state_has_changed()
 
 
-func _on_opened_character_menu(actor: Actor) -> void:
+func _on_opened_character_menu(entity: Entity) -> void:
 	Global.game_state.push_back(Global.State.STATE_MENU)
 	emit_signal("game_state_has_changed")
-	$CharacterMenu.open_menu(actor)
+	$CharacterMenu.open_menu(entity)
 
 
 func _on_close_character_menu() -> void:

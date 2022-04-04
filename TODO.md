@@ -4,20 +4,31 @@ PC can move
     PC can't move through units
 Enable Bump Attack
     Can kill NPC
-
+ECS-detour
+    Refactored some code to be more inline with ECS patterns.
+        [TODO] Need to properly implement a PositionComponent.
+            This will affect/improve how the MovementSystem detects valid cells.
 
 ## SOULS MECHANIC
 __Done__
 - Implement Actor
     - Implemet Soul, tied into CombatEngine
     - Implement Job
-
-__Current__
 - UI to view PC stats, including soul.
 
-__Todo__
+__Current__
 - Killed NPCs need to drop a soul-item that can be picked up and consumed
-    > As a stop-gap, walking over the soul could pick it up and consume it without player input.
+    - Might as well make an inventory to store/consume souls.
+    - When a NPC dies, they drop their soul.
+        - Emit a signal on death, sending their soul.
+        - Need to connect the signal to gamboard, I guess
+        - Gameboard needs to create an item
+            - I should generalize the Actor into an Entity.
+                - Some entities are actors
+                - Some entities are items
+                - All entities are Node2D with Sprite child nodes
+
+__Todo__
 - Consuming a soul needs its own UI and controls.
     - A UI to see the result of soul consumption
     - Controls to manipulate how the soul will be consumed
