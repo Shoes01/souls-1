@@ -1,7 +1,8 @@
 class_name CombatSystem
 extends Node
 
-signal damage_dealt(damage_amount, damaged_entity)
+
+signal stat_reduced(stat, amount, entity)
 
 var stat_sub_system = preload("res://systems/StatSubSystem.tres")
 
@@ -22,4 +23,4 @@ func _on_begin_combat(attacker: Entity, defender: Entity, is_attack: bool) -> vo
 	
 	print("Attacker deals ", damage_output, " to defender.")
 	
-	emit_signal("damage_dealt", damage_output, defender)
+	emit_signal("stat_reduced", "HP", damage_output, defender)

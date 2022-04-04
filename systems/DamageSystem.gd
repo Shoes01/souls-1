@@ -6,17 +6,18 @@ extends Node
 signal died(entity)
 
 
-func _on_damage_dealt(damage_amount: int, entity: Entity) -> void:
+func _on_stat_reduced(stat: String, amount: int, entity: Entity) -> void:
 	var stat_assignment = entity.get_component("JobComponent").get_stat_assignment()
 	var soul_component = entity.get_component("SoulComponent")
 	var soul = soul_component.get_soul()
 	
 	for x in range(0, len(stat_assignment)):
 		for y in range(0, len(stat_assignment[0])):
-			if stat_assignment[x][y] == "HP":
-				soul[x][y] -= damage_amount
+			if stat_assignment[x][y] == stat:
+				soul[x][y] -= amount
+				print(soul[x][y], " ", stat.to_lower(), " remaining.")
 				soul_component.set_soul(soul)
-				if soul[x][y] < 0:
+				if soul[x][y] < 0 and stat == "HP":
 					emit_signal("died", entity)
 					print("Entity ", entity.name, " (ID:", entity._id, ") has died.")
 					entity.queue_free()

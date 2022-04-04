@@ -17,6 +17,7 @@ script = ExtResource( 2 )
 
 [node name="SoulComponent" type="Node" parent="."]
 script = ExtResource( 4 )
+_soul = [ [ 0, 0, 0 ], [ 0, 0, 15 ] ]
 
 [node name="JobComponent" type="Node" parent="."]
 script = ExtResource( 5 )
