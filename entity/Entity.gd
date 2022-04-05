@@ -16,10 +16,14 @@ func _ready() -> void:
 	pass
 
 
-func get_component(value: String):
+func get_component(value: String) -> Node:
 	for child in get_children():
 		if child.name == value:
 			return child
 	
 	print("Failed to get component ", value, ".")
 	return null
+
+
+func attach_component(component: Node) -> void:
+	add_child(component)

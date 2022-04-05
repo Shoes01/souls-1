@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://systems/DamageSystem.gd"
 }, {
+"base": "Node",
+"class": "DeathSystem",
+"language": "GDScript",
+"path": "res://systems/DeathSystem.gd"
+}, {
 "base": "Node2D",
 "class": "Entity",
 "language": "GDScript",
@@ -35,9 +40,19 @@ _global_script_classes=[ {
 "path": "res://board/Grid.gd"
 }, {
 "base": "Node",
+"class": "ItemComponent",
+"language": "GDScript",
+"path": "res://components/ItemComponent.gd"
+}, {
+"base": "Node",
 "class": "JobComponent",
 "language": "GDScript",
 "path": "res://components/JobComponent.gd"
+}, {
+"base": "Resource",
+"class": "LootSubSystem",
+"language": "GDScript",
+"path": "res://systems/LootSubSystem.gd"
 }, {
 "base": "Node",
 "class": "MovementSystem",
@@ -72,10 +87,13 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "CombatSystem": "",
 "DamageSystem": "",
+"DeathSystem": "",
 "Entity": "",
 "GameBoard": "",
 "Grid": "",
+"ItemComponent": "",
 "JobComponent": "",
+"LootSubSystem": "",
 "MovementSystem": "",
 "SoulComponent": "",
 "SoulFactory": "",

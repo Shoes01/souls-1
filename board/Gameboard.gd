@@ -46,3 +46,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		emit_signal("opened_character_menu", player_character)
 		get_tree().set_input_as_handled()
 
+
+func _on_created_new_entity(entity: Entity) -> void:
+	add_child(entity)

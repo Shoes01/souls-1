@@ -4,14 +4,14 @@ extends Node
 
 signal stat_reduced(stat, amount, entity)
 
-var stat_sub_system = preload("res://systems/StatSubSystem.tres")
+var stat_sub_system: Resource = preload("res://systems/StatSubSystem.tres")
 
 
 func _on_begin_combat(attacker: Entity, defender: Entity, is_attack: bool) -> void:
 	var attacker_stats: Dictionary = stat_sub_system.calculate_stats(attacker)
 	var defender_stats: Dictionary = stat_sub_system.calculate_stats(defender)
 	
-	var damage_output = attacker_stats["ATK"] - defender_stats["DEF"]
+	var damage_output: int = attacker_stats["ATK"] - defender_stats["DEF"]
 	if is_attack == false:
 		damage_output = attacker_stats["MAG"] - defender_stats["RES"]
 	

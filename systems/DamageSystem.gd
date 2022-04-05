@@ -7,9 +7,9 @@ signal died(entity)
 
 
 func _on_stat_reduced(stat: String, amount: int, entity: Entity) -> void:
-	var stat_assignment = entity.get_component("JobComponent").get_stat_assignment()
-	var soul_component = entity.get_component("SoulComponent")
-	var soul = soul_component.get_soul()
+	var stat_assignment: Array = entity.get_component("JobComponent").get_stat_assignment()
+	var soul_component: Node = entity.get_component("SoulComponent")
+	var soul: Array = soul_component.get_soul()
 	
 	for x in range(0, len(stat_assignment)):
 		for y in range(0, len(stat_assignment[0])):
@@ -17,17 +17,15 @@ func _on_stat_reduced(stat: String, amount: int, entity: Entity) -> void:
 				soul[x][y] -= amount
 				print(soul[x][y], " ", stat.to_lower(), " remaining.")
 				soul_component.set_soul(soul)
-				if soul[x][y] < 0 and stat == "HP":
+				if stat == "HP" and soul[x][y] < 0:
 					emit_signal("died", entity)
-					print("Entity ", entity.name, " (ID:", entity._id, ") has died.")
-					entity.queue_free()
 
 
 # Keep this here so I don't lose it.
 func reduce_stat(stat, amount) -> void:
 	# Stat is a stat from Global.Stat
 	# Amount is how much is being reduced from said stat.
-	var _soul = $Soul.get_soul()
+	var _soul: Array = $Soul.get_soul()
 	# Find the highest value for stat.
 	var highest_value := 0
 	var highest_stat: Vector2 = Vector2.INF

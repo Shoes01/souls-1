@@ -6,8 +6,7 @@ Enable Bump Attack
     Can kill NPC
 ECS-detour
     Refactored some code to be more inline with ECS patterns.
-        [TODO] Need to properly implement a PositionComponent.
-            This will affect/improve how the MovementSystem detects valid cells.
+
 
 ## SOULS MECHANIC
 __Done__
@@ -15,18 +14,11 @@ __Done__
     - Implemet Soul, tied into CombatEngine
     - Implement Job
 - UI to view PC stats, including soul.
+- Killed NPC drops a soul-item.
 
 __Current__
-- Killed NPCs need to drop a soul-item that can be picked up and consumed
-    - Might as well make an inventory to store/consume souls.
-    - When a NPC dies, they drop their soul.
-        - Emit a signal on death, sending their soul.
-        - Need to connect the signal to gamboard, I guess
-        - Gameboard needs to create an item
-            - I should generalize the Actor into an Entity.
-                - Some entities are actors
-                - Some entities are items
-                - All entities are Node2D with Sprite child nodes
+Implement an inventory allowing entities to pick up items.
+    - Probably an InventoryComponent that holds a list of a) entity ids or b) entire entities
 
 __Todo__
 - Consuming a soul needs its own UI and controls.
@@ -49,3 +41,6 @@ Jobs mechanic.
 
 # POLISH
 Ensure that bottom-most sprites are drawn in front of top-most sprites.
+Create a proper PositionComponent.
+Make all components inherit from a base Component class.
+Figure out how to render sprites in the correct order.

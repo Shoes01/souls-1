@@ -11,6 +11,8 @@ func _ready() -> void:
 	$UI.connect("game_state_has_changed", $Debug, "_on_game_state_has_changed")
 	$Gameboard/MovementSystem.connect("begin_combat", $Gameboard/CombatSystem, "_on_begin_combat")
 	$Gameboard/CombatSystem.connect("stat_reduced", $Gameboard/DamageSystem, "_on_stat_reduced")
+	$Gameboard/DamageSystem.connect("died", $Gameboard/DeathSystem, "_on_died")
+	$Gameboard/DeathSystem.connect("created_new_entity", $Gameboard, "_on_created_new_entity")
 
 
 func _unhandled_input(event: InputEvent) -> void:
