@@ -23,6 +23,6 @@ func _on_item_picked_up(entity: Entity) -> void:
 		
 		if entity_cell == item_cell:
 			# pick up the item!
-			inventory_component.contents.append(item)
+			inventory_component.add_item(item)
 			emit_signal("removed_entity", item)
 			print("Item picked up!")

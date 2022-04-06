@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Map.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://systems/DamageSystem.gd" type="Script" id=9]
 [ext_resource path="res://systems/DeathSystem.gd" type="Script" id=10]
 [ext_resource path="res://systems/ItemPickupSystem.gd" type="Script" id=11]
+[ext_resource path="res://ui/InventoryMenu.tscn" type="PackedScene" id=12]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -39,6 +40,9 @@ script = ExtResource( 11 )
 script = ExtResource( 4 )
 
 [node name="CharacterMenu" parent="UI" instance=ExtResource( 5 )]
+visible = false
+
+[node name="InventoryMenu" parent="UI" instance=ExtResource( 12 )]
 visible = false
 
 [node name="Debug" type="Control" parent="."]

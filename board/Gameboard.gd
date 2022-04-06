@@ -5,6 +5,7 @@ extends Node
 signal opened_character_menu(entity)
 signal entity_moved(entity, direction, walls)
 signal item_picked_up(entity)
+signal opened_inventory_menu(entity)
 
 export var grid: Resource = preload("res://board/Grid.tres")
 
@@ -43,6 +44,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Open Character menu.
 	if event.is_action_pressed("custom_character_menu_open"):
 		emit_signal("opened_character_menu", player_character)
+		get_tree().set_input_as_handled()
+	
+	if event.is_action_pressed("custom_inventory_menu_open"):
+		emit_signal("opened_inventory_menu", player_character)
 		get_tree().set_input_as_handled()
 	
 	# Pick up an item.

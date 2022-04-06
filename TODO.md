@@ -17,9 +17,12 @@ __Done__
 - Implemented Inventory
     [todo] view inventory
     [todo] drop items
+- Implemented broken Inventory UI lmao
+    [todo] fix how items are displayed
+    [todo] allow the user to interact with items
 
 __Current__
-Inventor UI
+Fix render order problem
 
 __Todo__
 - Consuming a soul needs its own UI and controls.

@@ -10,8 +10,10 @@ func _on_opened_character_menu(entity: Entity) -> void:
 	$CharacterMenu.open_menu(entity)
 
 
-func _on_close_character_menu() -> void:
-	$CharacterMenu.close_menu()
+func _on_opened_inventory_menu(entity: Entity) -> void:
+	Global.game_state.push_back(Global.State.STATE_MENU)
+	emit_signal("game_state_has_changed")
+	$InventoryMenu.open_menu(entity)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -21,4 +23,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		Global.game_state.pop_back()
 		emit_signal("game_state_has_changed")
 		$CharacterMenu.close_menu()
+		$InventoryMenu.close_menu()
 		get_tree().set_input_as_handled()
