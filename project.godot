@@ -40,9 +40,19 @@ _global_script_classes=[ {
 "path": "res://board/Grid.gd"
 }, {
 "base": "Node",
+"class": "InventoryComponent",
+"language": "GDScript",
+"path": "res://components/InventoryComponent.gd"
+}, {
+"base": "Node",
 "class": "ItemComponent",
 "language": "GDScript",
 "path": "res://components/ItemComponent.gd"
+}, {
+"base": "Node",
+"class": "ItemPickupSystem",
+"language": "GDScript",
+"path": "res://systems/ItemPickupSystem.gd"
 }, {
 "base": "Node",
 "class": "JobComponent",
@@ -74,7 +84,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://systems/SoulSystem.gd"
 }, {
-"base": "Reference",
+"base": "Sprite",
 "class": "SpriteComponent",
 "language": "GDScript",
 "path": "res://components/SpriteComponent.gd"
@@ -91,7 +101,9 @@ _global_script_class_icons={
 "Entity": "",
 "GameBoard": "",
 "Grid": "",
+"InventoryComponent": "",
 "ItemComponent": "",
+"ItemPickupSystem": "",
 "JobComponent": "",
 "LootSubSystem": "",
 "MovementSystem": "",
@@ -122,6 +134,11 @@ custom_character_menu_open={
 custom_toggle_debug={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+custom_item_pickup={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":71,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

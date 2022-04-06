@@ -7,7 +7,7 @@ signal begin_combat(attacker, defender, is_attack)
 var grid: Resource = preload("res://board/Grid.tres")
 
 
-func move_to(entity: Entity, direction: Vector2, walls: Array) -> void:
+func _on_entity_moved(entity: Entity, direction: Vector2, walls: Array) -> void:
 	# I am cheating my using walls, as the walls should really all be entities with some ObstacleComponent or something.
 	var entity_cell = grid.calculate_grid_coordinates(entity.position)
 	var target_cell = entity_cell + direction

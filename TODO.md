@@ -10,15 +10,16 @@ ECS-detour
 
 ## SOULS MECHANIC
 __Done__
-- Implement Actor
-    - Implemet Soul, tied into CombatEngine
-    - Implement Job
-- UI to view PC stats, including soul.
+- Implement Entity and Components
+- UI to view PC stats, including soul. 
+    [todo] need to also show which stats form JobComponent match up with the soul integers
 - Killed NPC drops a soul-item.
+- Implemented Inventory
+    [todo] view inventory
+    [todo] drop items
 
 __Current__
-Implement an inventory allowing entities to pick up items.
-    - Probably an InventoryComponent that holds a list of a) entity ids or b) entire entities
+Inventor UI
 
 __Todo__
 - Consuming a soul needs its own UI and controls.

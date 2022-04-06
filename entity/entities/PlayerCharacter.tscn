@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://entity/Entity.gd" type="Script" id=1]
 [ext_resource path="res://assets/alienGreen.png" type="Texture" id=2]
 [ext_resource path="res://components/SpriteComponent.gd" type="Script" id=3]
 [ext_resource path="res://components/SoulComponent.gd" type="Script" id=4]
 [ext_resource path="res://components/JobComponent.gd" type="Script" id=5]
+[ext_resource path="res://components/InventoryComponent.gd" type="Script" id=6]
 
 [node name="PlayerCharacter" type="Node2D"]
 z_index = 10
@@ -21,3 +22,6 @@ _soul = [ [ 10, 5, 1 ], [ 10, 5, 1 ] ]
 
 [node name="JobComponent" type="Node" parent="."]
 script = ExtResource( 5 )
+
+[node name="InventoryComponent" type="Node" parent="."]
+script = ExtResource( 6 )
