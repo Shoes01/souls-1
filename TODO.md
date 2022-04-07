@@ -41,3 +41,4 @@ Ensure that bottom-most sprites are drawn in front of top-most sprites.
 Create a proper PositionComponent.
 Make all components inherit from a base Component class.
 Figure out how to render sprites in the correct order.
+When Debug is toggled, it just hides $Label. In the future, I may want to hide _all_ of Debug. 

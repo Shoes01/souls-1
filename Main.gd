@@ -19,9 +19,3 @@ func _ready() -> void:
 	$Gameboard/ItemPickupSystem.connect("removed_entity", $Gameboard, "_on_removed_entity")
 	$UI/InventoryMenu.connect("drop", $Gameboard/InventorySystem, "_on_drop")
 	$Gameboard/InventorySystem.connect("add_child_entity", $Gameboard, "_on_add_child_entity")
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("custom_toggle_debug"):
-		$Debug.set_visible(!$Debug.is_visible())
-		get_tree().set_input_as_handled()
