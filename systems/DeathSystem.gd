@@ -2,7 +2,7 @@ class_name DeathSystem
 extends Node
 
 
-signal created_new_entity(entity)
+signal add_child_entity(entity)
 
 var loot_sub_system: Resource = preload("res://systems/LootSubSystem.tres")
 
@@ -16,7 +16,7 @@ func _on_died(entity: Entity) -> void:
 	# Set its position.
 	soul_loot_entity.set_position(entity.position)
 	
-	emit_signal("created_new_entity", soul_loot_entity)
+	emit_signal("add_child_entity", soul_loot_entity)
 	
 	entity.queue_free()
 

@@ -15,8 +15,10 @@ func _ready() -> void:
 	$Gameboard/MovementSystem.connect("begin_combat", $Gameboard/CombatSystem, "_on_begin_combat")
 	$Gameboard/CombatSystem.connect("stat_reduced", $Gameboard/DamageSystem, "_on_stat_reduced")
 	$Gameboard/DamageSystem.connect("died", $Gameboard/DeathSystem, "_on_died")
-	$Gameboard/DeathSystem.connect("created_new_entity", $Gameboard, "_on_created_new_entity")
+	$Gameboard/DeathSystem.connect("add_child_entity", $Gameboard, "_on_add_child_entity")
 	$Gameboard/ItemPickupSystem.connect("removed_entity", $Gameboard, "_on_removed_entity")
+	$UI/InventoryMenu.connect("drop", $Gameboard/InventorySystem, "_on_drop")
+	$Gameboard/InventorySystem.connect("add_child_entity", $Gameboard, "_on_add_child_entity")
 
 
 func _unhandled_input(event: InputEvent) -> void:

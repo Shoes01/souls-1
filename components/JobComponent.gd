@@ -26,3 +26,7 @@ func set_stat_assignment(value: Array) -> void:
 
 func get_stat_assignment() -> Array:
 	return stat_assignment
+
+
+func get_class() -> String:
+	return "JobComponent"

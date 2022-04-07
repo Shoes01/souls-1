@@ -13,14 +13,17 @@ onready var player_character: Entity = load("res://entity/entities/PlayerCharact
 
 
 func _ready() -> void:
-	# Prepare PC
+	# Prepare PC.
 	add_child(player_character)
 	player_character.position = grid.calculate_map_position(Vector2(3, 3))
 		
-	# Prepare NPC
+	# Prepare NPCs.
 	var npc: Entity = load("res://entity/entities/NonPlayerCharacter.tscn").instance()
 	add_child(npc)
-	npc.position = grid.calculate_map_position(Vector2(3, 5))
+	npc.position = grid.calculate_map_position(Vector2(3, 4))
+	var npc2: Entity = load("res://entity/entities/NonPlayerCharacter.tscn").instance()
+	add_child(npc2)
+	npc2.position = grid.calculate_map_position(Vector2(6, 4))
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -56,7 +59,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().set_input_as_handled()
 
 
-func _on_created_new_entity(entity: Entity) -> void:
+func _on_add_child_entity(entity: Entity) -> void:
 	add_child(entity)
 
 

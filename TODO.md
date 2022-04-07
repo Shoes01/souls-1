@@ -15,16 +15,9 @@ __Done__
     [todo] need to also show which stats form JobComponent match up with the soul integers
 - Killed NPC drops a soul-item.
 - Implemented Inventory
-    [todo] view inventory
-    [todo] drop items
-- Implemented broken Inventory UI lmao
-    [todo] fix how items are displayed
-    [todo] allow the user to interact with items
+    [todo] implement soul-consume system
 
 __Current__
-Fix render order problem
-
-__Todo__
 - Consuming a soul needs its own UI and controls.
     - A UI to see the result of soul consumption
     - Controls to manipulate how the soul will be consumed

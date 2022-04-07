@@ -45,6 +45,11 @@ _global_script_classes=[ {
 "path": "res://components/InventoryComponent.gd"
 }, {
 "base": "Node",
+"class": "InventorySystem",
+"language": "GDScript",
+"path": "res://systems/InventorySystem.gd"
+}, {
+"base": "Node",
 "class": "ItemComponent",
 "language": "GDScript",
 "path": "res://components/ItemComponent.gd"
@@ -102,6 +107,7 @@ _global_script_class_icons={
 "GameBoard": "",
 "Grid": "",
 "InventoryComponent": "",
+"InventorySystem": "",
 "ItemComponent": "",
 "ItemPickupSystem": "",
 "JobComponent": "",

@@ -36,3 +36,7 @@ func get_row_count() -> int:
 
 func get_column_count()  -> int:
 	return len(_soul[0])
+
+
+func get_class() -> String:
+	return "SoulComponent"
