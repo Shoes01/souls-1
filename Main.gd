@@ -12,10 +12,12 @@ func _ready() -> void:
 	$Gameboard.connect("entity_moved", $Gameboard/MovementSystem, "_on_entity_moved")
 	$Gameboard.connect("item_picked_up", $Gameboard/ItemPickupSystem, "_on_item_picked_up")
 	$Gameboard.connect("opened_inventory_menu", $UI, "_on_opened_inventory_menu")
+	$Gameboard.connect("opened_consume_menu", $UI, "_on_opened_consume_menu")
 	$Gameboard/MovementSystem.connect("begin_combat", $Gameboard/CombatSystem, "_on_begin_combat")
 	$Gameboard/CombatSystem.connect("stat_reduced", $Gameboard/DamageSystem, "_on_stat_reduced")
 	$Gameboard/DamageSystem.connect("died", $Gameboard/DeathSystem, "_on_died")
 	$Gameboard/DeathSystem.connect("add_child_entity", $Gameboard, "_on_add_child_entity")
 	$Gameboard/ItemPickupSystem.connect("removed_entity", $Gameboard, "_on_removed_entity")
-	$UI/InventoryMenu.connect("drop", $Gameboard/InventorySystem, "_on_drop")
+	$UI/InventoryMenu.connect("dropped", $Gameboard/InventorySystem, "_on_dropped")
 	$Gameboard/InventorySystem.connect("add_child_entity", $Gameboard, "_on_add_child_entity")
+	

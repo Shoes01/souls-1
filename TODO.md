@@ -7,7 +7,6 @@ Enable Bump Attack
 ECS-detour
     Refactored some code to be more inline with ECS patterns.
 
-
 ## SOULS MECHANIC
 __Done__
 - Implement Entity and Components
@@ -16,17 +15,14 @@ __Done__
 - Killed NPC drops a soul-item.
 - Implemented Inventory
     [todo] implement soul-consume system
+    [todo] differentiate between different items
+- Implemented Soul Cosumption 
+    [todo] need to improve the UI to make it more clear what is happening
 
-__Current__
-- Consuming a soul needs its own UI and controls.
-    - A UI to see the result of soul consumption
-    - Controls to manipulate how the soul will be consumed
-    - Consuming the soul changes the player soul
-
-
-### SOUL OBJECT
-I think at the moment this is just 6 integers wrapped in a matrix. 
-I could probably write my own class to handle this though. 
+__Not done yet__
+Refactor the code so that it is more clean.
+    Figure out how and where to put input logic
+    Figure out how to sort UI and related systems
 
 # TODO
 Enable Ranged Attack

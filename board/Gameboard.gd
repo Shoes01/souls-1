@@ -3,9 +3,11 @@ extends Node
 
 
 signal opened_character_menu(entity)
+signal opened_consume_menu(entity)
+signal opened_inventory_menu(entity)
 signal entity_moved(entity, direction, walls)
 signal item_picked_up(entity)
-signal opened_inventory_menu(entity)
+
 
 export var grid: Resource = preload("res://board/Grid.tres")
 
@@ -16,6 +18,7 @@ func _ready() -> void:
 	# Prepare PC.
 	add_child(player_character)
 	player_character.position = grid.calculate_map_position(Vector2(3, 3))
+	player_character.add_to_group("pc")
 		
 	# Prepare NPCs.
 	var npc: Entity = load("res://entity/entities/NonPlayerCharacter.tscn").instance()
@@ -49,8 +52,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		emit_signal("opened_character_menu", player_character)
 		get_tree().set_input_as_handled()
 	
+	# Open Inventory menu.
 	if event.is_action_pressed("custom_inventory_menu_open"):
 		emit_signal("opened_inventory_menu", player_character)
+		get_tree().set_input_as_handled()
+	
+	# Open Soul-Consume menu.
+	if event.is_action_pressed("custom_consume_menu_open"):
+		emit_signal("opened_consume_menu", player_character)
 		get_tree().set_input_as_handled()
 	
 	# Pick up an item.
@@ -60,8 +69,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_add_child_entity(entity: Entity) -> void:
+	print("Added new entity: ", entity.name, " ", entity._id)
 	add_child(entity)
 
 
 func _on_removed_entity(entity) -> void:
+	print("Removed entity: ", entity.name, " ", entity._id)
 	remove_child(entity)

@@ -30,6 +30,14 @@ func get_soul_string() -> String:
 	return soul_string
 
 
+func get_soul_sum() -> int:
+	var total := 0
+	for row in range(0, len(_soul)):
+		for col in range(0, len(_soul[0])):
+			total += _soul[row][col]
+	
+	return total
+
 func get_row_count() -> int:
 	return len(_soul)
 
@@ -40,3 +48,36 @@ func get_column_count()  -> int:
 
 func get_class() -> String:
 	return "SoulComponent"
+
+
+# The left-most column goes to the far-right.
+func rotate_left() -> void:
+	for x in range(0, len(_soul)):
+		# Pop the fist element and push it to the back.
+		_soul[x].push_back(_soul[x].pop_front())
+
+
+# The right-most column goes to the far-left.
+func rotate_right() -> void:
+	for x in range(0, len(_soul)):
+		# Pop the last element, and push it to the front.
+		_soul[x].push_front(_soul[x].pop_back())
+
+
+# The top-most row goes to the bottom.
+func rotate_up() -> void:
+	_soul.push_back(_soul.pop_front())
+
+
+# The bottom-most row goes to the top.
+func rotate_down() -> void:
+	_soul.push_front(_soul.pop_back())
+
+
+# Merge into host soul.
+func merge(new_soul_component: SoulComponent) -> void:
+	var new_soul = new_soul_component.get_soul()
+	for x in range(0, len(new_soul)):
+		for y in range(0, len(new_soul[x])):
+			_soul[x][y] += new_soul[x][y]
+

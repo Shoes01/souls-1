@@ -2,7 +2,8 @@ extends Control
 
 
 signal closed()
-signal drop(dropped_item, entity)
+signal dropped(dropped_item, entity)
+signal equipped(equipped_item, entity)
 
 var _cached_contents : Array
 var _cached_entity : Entity
@@ -25,8 +26,9 @@ func open_menu(entity: Entity) -> void:
 	set_visible(true)
 
 
-func close_menu():
+func close_menu() -> void:
 	$Panel/ItemList.clear()
+	$Panel/ItemList/PopupMenu.set_visible(false)
 	set_visible(false)
 
 
@@ -40,29 +42,23 @@ func _on_ItemList_item_activated(index: int) -> void:
 	## Drop
 	## Equip
 	
-	if item_component.is_consumable:
+	if item_component.is_droppable:
 		$Panel/ItemList/PopupMenu.set_item_disabled(0, false)
 	else:
 		$Panel/ItemList/PopupMenu.set_item_disabled(0, true)
 	
-	if item_component.is_droppable:
+	if item_component.is_equippable:
 		$Panel/ItemList/PopupMenu.set_item_disabled(1, false)
 	else:
 		$Panel/ItemList/PopupMenu.set_item_disabled(1, true)
-	
-	if item_component.is_equippable:
-		$Panel/ItemList/PopupMenu.set_item_disabled(2, false)
-	else:
-		$Panel/ItemList/PopupMenu.set_item_disabled(2, true)
 	
 	$Panel/ItemList/PopupMenu.set_visible(true)
 
 
 func _on_PopupMenu_index_pressed(index: int) -> void:
-	# 0 : consume
 	if index == 1:
-		emit_signal("drop", _cached_selected_item, _cached_entity)
+		emit_signal("consumed", _cached_selected_item, _cached_entity)
 		emit_signal("closed")
-		
-	# 2 : equip
-	
+	if index == 2:
+		emit_signal("equipped", _cached_selected_item, _cached_entity)
+		emit_signal("closed")

@@ -20,6 +20,7 @@ func get_component(value: String) -> Node:
 			return child
 	
 	print("Failed to get component ", value, ".")
+	print("Available components are:")
 	for child in get_children():
 		print(child.get_class())
 	
@@ -27,5 +28,6 @@ func get_component(value: String) -> Node:
 
 
 func attach_component(component: Node) -> void:
-	print("Added component: ", component)
+	var old_parent: Node = component.get_parent()
+	if old_parent: old_parent.remove_child(component)
 	add_child(component)

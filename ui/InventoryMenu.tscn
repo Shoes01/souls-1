@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -10.0
 margin_bottom = 10.0
-items = [ "Consume", null, 0, false, false, 0, 0, null, "", false, "Drop", null, 0, false, false, 1, 0, null, "", false, "Equip", null, 0, false, false, 2, 0, null, "", false ]
+items = [ "Drop", null, 0, false, false, 1, 0, null, "", false, "Equip", null, 0, false, false, 2, 0, null, "", false ]
 
 [connection signal="item_activated" from="Panel/ItemList" to="." method="_on_ItemList_item_activated"]
 [connection signal="index_pressed" from="Panel/ItemList/PopupMenu" to="." method="_on_PopupMenu_index_pressed"]
