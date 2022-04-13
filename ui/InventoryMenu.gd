@@ -1,7 +1,7 @@
 extends Control
 
 
-signal closed()
+signal finished()
 signal dropped(dropped_item, entity)
 signal equipped(equipped_item, entity)
 
@@ -10,9 +10,14 @@ var _cached_entity : Entity
 var _cached_selected_item : Entity
 
 
-func _ready() -> void:
-	#$Panel/ItemList/PopupMenu.
-	pass
+func close_menu() -> void:
+	$Panel/ItemList.clear()
+	$Panel/ItemList/PopupMenu.set_visible(false)
+	set_visible(false)
+
+
+func is_active() -> bool:
+	return visible
 
 
 func open_menu(entity: Entity) -> void:
@@ -26,22 +31,14 @@ func open_menu(entity: Entity) -> void:
 	set_visible(true)
 
 
-func close_menu() -> void:
-	$Panel/ItemList.clear()
-	$Panel/ItemList/PopupMenu.set_visible(false)
-	set_visible(false)
-
-
 func _on_ItemList_item_activated(index: int) -> void:
 	var entity = _cached_contents[index]
 	var item_component = entity.get_component("ItemComponent")
 	_cached_selected_item = entity
 	
 	# Popup Menu options
-	## Consume
 	## Drop
 	## Equip
-	
 	if item_component.is_droppable:
 		$Panel/ItemList/PopupMenu.set_item_disabled(0, false)
 	else:
@@ -56,9 +53,12 @@ func _on_ItemList_item_activated(index: int) -> void:
 
 
 func _on_PopupMenu_index_pressed(index: int) -> void:
+	# Drop item.
+	if index == 0:
+		emit_signal("dropped", _cached_selected_item, _cached_entity)
+		emit_signal("finished")
+	# Equip item.
 	if index == 1:
-		emit_signal("consumed", _cached_selected_item, _cached_entity)
-		emit_signal("closed")
-	if index == 2:
 		emit_signal("equipped", _cached_selected_item, _cached_entity)
-		emit_signal("closed")
+		emit_signal("finished")
+

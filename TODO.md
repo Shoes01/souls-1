@@ -32,6 +32,24 @@ Improve UI
     Have titles and boarders in the menus
     Show player stats somewhere
 
+## REFACTOR
+Problem-1 ::: I don't want systems to copy any data in order to remember it.
+
+Solution-1 :: Simplest solution is to fetch the player entity each time input is used.
+Solution-2 :: Store the active-entity'd ID in the system to be retrieved when needed.
+
+Note-1 :::::: Menu-data can be stored in the menu systems, provided it is not copied.
+Note-2 :::::: A lot of the UI data should be populated by signal. The signal sends to the UI menu all the data required.
+                This still suggests that input is done such that entity data is emitted with the signal,
+                or that I remember entity IDs in the systems
+
+Problem-2 ::: How do I handle UI nodes and UI Systems? Are they the same or different?
+
+Solution-1 :: Make them the same.
+
+
+
+
 # TODO
 Enable Ranged Attack
     This is a subset of a proper implementation of skills.

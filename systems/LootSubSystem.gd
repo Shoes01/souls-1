@@ -26,8 +26,4 @@ func generate_soul(soul_component: SoulComponent) -> Entity:
 	## Add Soul component.
 	entity.attach_component(soul_component)
 	
-	print("   ", soul_component)
-	
-	entity.get_component("")
-	
 	return entity

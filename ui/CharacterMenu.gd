@@ -19,3 +19,7 @@ func open_menu(entity: Entity) -> void:
 
 func close_menu() -> void:
 	set_visible(false)
+
+
+func is_active() -> bool:
+	return visible
