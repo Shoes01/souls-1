@@ -12,6 +12,7 @@ var _cached_selected_item : Entity
 func close_menu() -> void:
 	set_visible(false)
 	$Panel/ItemList.clear()
+	$Panel.set_visible(false)
 	$Panel2.set_visible(false)
 
 
@@ -42,6 +43,7 @@ func open_menu(entity: Entity) -> void:
 		$Panel/ItemList.add_item(item_entry)
 	
 	set_visible(true)
+	$Panel.set_visible(true)
 
 
 func rotate_soul(direction: String) -> void:
@@ -66,6 +68,7 @@ func _on_ItemList_item_activated(index):
 	var newsoul_text: String = _cached_selected_item.get_component("SoulComponent").get_soul_string()
 	$Panel2/HBoxContainer/NewSoul.set_text(newsoul_text)
 	
+	$Panel.set_visible(false)
 	$Panel2.set_visible(true)
 
 

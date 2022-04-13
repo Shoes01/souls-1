@@ -17,13 +17,22 @@ func _unhandled_input(event: InputEvent) -> void:
 		# Has no input at the moment.
 		pass
 	if $ConsumeMenu.is_active():
-		if event.is_action_pressed("ui_right"):		$ConsumeMenu.rotate_soul("right")
-		elif event.is_action_pressed("ui_up"):		$ConsumeMenu.rotate_soul("up")
-		elif event.is_action_pressed("ui_left"):	$ConsumeMenu.rotate_soul("left")
-		elif event.is_action_pressed("ui_down"):	$ConsumeMenu.rotate_soul("down")
+		if event.is_action_pressed("ui_right"):
+			$ConsumeMenu.rotate_soul("right")
+			get_tree().set_input_as_handled()
+		elif event.is_action_pressed("ui_up"):
+			$ConsumeMenu.rotate_soul("up")
+			get_tree().set_input_as_handled()
+		elif event.is_action_pressed("ui_left"):
+			$ConsumeMenu.rotate_soul("left")
+			get_tree().set_input_as_handled()
+		elif event.is_action_pressed("ui_down"):
+			$ConsumeMenu.rotate_soul("down")
+			get_tree().set_input_as_handled()
 		elif event.is_action_pressed("ui_accept"):	
 			$ConsumeMenu.consume()
 			_on_finished()
+			get_tree().set_input_as_handled()
 	if $InventoryMenu.is_active():
 		# Has no input at the moment.
 		# Eventually, I could add hotkeys.

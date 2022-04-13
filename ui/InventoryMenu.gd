@@ -1,6 +1,7 @@
 extends Control
 
 
+signal add_child_entity(item)
 signal finished()
 signal dropped(dropped_item, entity)
 signal equipped(equipped_item, entity)
@@ -55,10 +56,12 @@ func _on_ItemList_item_activated(index: int) -> void:
 func _on_PopupMenu_index_pressed(index: int) -> void:
 	# Drop item.
 	if index == 0:
-		emit_signal("dropped", _cached_selected_item, _cached_entity)
+		_cached_entity.get_component("InventoryComponent").remove(_cached_selected_item)
+		_cached_selected_item.position = _cached_entity.position
+		emit_signal("add_child_entity", _cached_selected_item)
 		emit_signal("finished")
 	# Equip item.
 	if index == 1:
-		emit_signal("equipped", _cached_selected_item, _cached_entity)
+		_cached_entity.get_component("InventoryComponent").equip(_cached_selected_item)
 		emit_signal("finished")
 
