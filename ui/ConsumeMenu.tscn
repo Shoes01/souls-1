@@ -14,6 +14,7 @@ anchor_bottom = 1.0
 [node name="ItemList" type="ItemList" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+focus_mode = 0
 
 [node name="Panel2" type="Panel" parent="."]
 visible = false
