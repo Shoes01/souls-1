@@ -24,31 +24,18 @@ __Done__
                 inventory will show soul-sum
                 consume will show full array + soul-sum
 
+
+__Current__
+Create a ConsumePreparationMenu
+Do not make it a child of ConsumeMenu
+This means I need some sort of finite state machine. Or something.
+NESTED MENUS, how do they work
+
+
 __Not done yet__
-Refactor the code so that it is more clean.
-    Figure out how and where to put input logic
-    Figure out how to sort UI and related systems
 Improve UI
     Have titles and boarders in the menus
     Show player stats somewhere
-
-## REFACTOR
-Problem-1 ::: I don't want systems to copy any data in order to remember it.
-
-Solution-1 :: Simplest solution is to fetch the player entity each time input is used.
-Solution-2 :: Store the active-entity'd ID in the system to be retrieved when needed.
-
-Note-1 :::::: Menu-data can be stored in the menu systems, provided it is not copied.
-Note-2 :::::: A lot of the UI data should be populated by signal. The signal sends to the UI menu all the data required.
-                This still suggests that input is done such that entity data is emitted with the signal,
-                or that I remember entity IDs in the systems
-
-Problem-2 ::: How do I handle UI nodes and UI Systems? Are they the same or different?
-
-Solution-1 :: Make them the same.
-
-[BUG] : In the ConsumeMenu, ItemList uses the input that's meant to go to HBoxContainer.
-
 
 # TODO
 Enable Ranged Attack
@@ -61,4 +48,5 @@ Jobs mechanic
 Create a proper PositionComponent.
 Make all components inherit from a base Component class.
 When Debug is toggled, it just hides $Label. In the future, I may want to hide _all_ of Debug. 
-Redesign most UI nodes to have buttons, instead of double-clicking everything
+Redesign most UI nodes to have buttons, instead of double-clicking everything.
+    Also allow native kb inputs - I turned this off on ConsumeMenu

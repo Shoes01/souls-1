@@ -11,11 +11,25 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="ItemList" type="ItemList" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="PopupMenu" type="PopupMenu" parent="Panel/ItemList"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 14.0
+text = "INVENTORY MENU"
+
+[node name="ItemList" type="ItemList" parent="Panel/VBoxContainer"]
+margin_top = 18.0
+margin_right = 1024.0
+margin_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PopupMenu" type="PopupMenu" parent="Panel/VBoxContainer/ItemList"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -23,5 +37,5 @@ margin_top = -10.0
 margin_bottom = 10.0
 items = [ "Drop", null, 0, false, false, 1, 0, null, "", false, "Equip", null, 0, false, false, 2, 0, null, "", false ]
 
-[connection signal="item_activated" from="Panel/ItemList" to="." method="_on_ItemList_item_activated"]
-[connection signal="index_pressed" from="Panel/ItemList/PopupMenu" to="." method="_on_PopupMenu_index_pressed"]
+[connection signal="item_activated" from="Panel/VBoxContainer/ItemList" to="." method="_on_ItemList_item_activated"]
+[connection signal="index_pressed" from="Panel/VBoxContainer/ItemList/PopupMenu" to="." method="_on_PopupMenu_index_pressed"]

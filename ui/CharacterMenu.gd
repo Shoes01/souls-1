@@ -1,7 +1,7 @@
 extends Control
 
 
-onready var body: Node = $Panel/RichTextLabel
+onready var body: Node = $Panel/VBoxContainer/Label2
 
 
 func open_menu(entity: Entity) -> void:

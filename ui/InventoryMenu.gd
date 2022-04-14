@@ -12,8 +12,8 @@ var _cached_selected_item : Entity
 
 
 func close_menu() -> void:
-	$Panel/ItemList.clear()
-	$Panel/ItemList/PopupMenu.set_visible(false)
+	$Panel/VBoxContainer/ItemList.clear()
+	$Panel/VBoxContainer/ItemList/PopupMenu.set_visible(false)
 	set_visible(false)
 
 
@@ -27,7 +27,7 @@ func open_menu(entity: Entity) -> void:
 	_cached_contents = contents
 	
 	for item in contents:
-		$Panel/ItemList.add_item(item.name)
+		$Panel/VBoxContainer/ItemList.add_item(item.name)
 	
 	set_visible(true)
 
@@ -41,16 +41,16 @@ func _on_ItemList_item_activated(index: int) -> void:
 	## Drop
 	## Equip
 	if item_component.is_droppable:
-		$Panel/ItemList/PopupMenu.set_item_disabled(0, false)
+		$Panel/VBoxContainer/ItemList/PopupMenu.set_item_disabled(0, false)
 	else:
-		$Panel/ItemList/PopupMenu.set_item_disabled(0, true)
+		$Panel/VBoxContainer/ItemList/PopupMenu.set_item_disabled(0, true)
 	
 	if item_component.is_equippable:
-		$Panel/ItemList/PopupMenu.set_item_disabled(1, false)
+		$Panel/VBoxContainer/ItemList/PopupMenu.set_item_disabled(1, false)
 	else:
-		$Panel/ItemList/PopupMenu.set_item_disabled(1, true)
+		$Panel/VBoxContainer/ItemList/PopupMenu.set_item_disabled(1, true)
 	
-	$Panel/ItemList/PopupMenu.set_visible(true)
+	$Panel/VBoxContainer/ItemList/PopupMenu.set_visible(true)
 
 
 func _on_PopupMenu_index_pressed(index: int) -> void:
