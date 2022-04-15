@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Map.tscn" type="PackedScene" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://ui/InventoryMenu.tscn" type="PackedScene" id=12]
 [ext_resource path="res://ui/ConsumeSubMenu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://ui/ConsumeMenu.tscn" type="PackedScene" id=14]
+[ext_resource path="res://ui/HUD.gd" type="Script" id=15]
+[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=16]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -40,6 +42,9 @@ script = ExtResource( 11 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource( 4 )
+
+[node name="HUD" parent="UI" instance=ExtResource( 16 )]
+script = ExtResource( 15 )
 
 [node name="CharacterMenu" parent="UI" instance=ExtResource( 5 )]
 visible = false

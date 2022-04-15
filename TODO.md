@@ -30,10 +30,7 @@ __Done__
 
 
 __Next up__
-Dispaly stats somewhere
-    Character Menu needs to display stats
-    Gameboard needs to display stats
-        Need a HUD
+When the soul-matrix is displayed, show the relationship of soul-integer to job-stat.
 
 # TODO
 Enable Ranged Attack

@@ -10,6 +10,7 @@ func _ready() -> void:
 	$Gameboard.connect("entity_moved", 		$Gameboard/MovementSystem, 		"_on_entity_moved")
 	$Gameboard.connect("item_picked_up", 	$Gameboard/ItemPickupSystem, 	"_on_item_picked_up")
 	$Gameboard.connect("opened_menu", 		$UI, 							"_on_opened_menu")
+	$Gameboard.connect("HUD_updated",		$UI/HUD,						"_on_HUD_updated")
 	
 	# Connect system signals.
 	$Gameboard/CombatSystem.connect(	"stat_reduced", 	$Gameboard/DamageSystem, 	"_on_stat_reduced")

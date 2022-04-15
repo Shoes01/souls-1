@@ -5,6 +5,7 @@ extends Node
 signal opened_menu(menu, entity)
 signal entity_moved(entity, direction, walls)
 signal item_picked_up(entity)
+signal HUD_updated()
 
 export var grid: Resource = preload("res://board/Grid.tres")
 
@@ -28,6 +29,8 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Global.game_state[-1] != Global.State.STATE_GAME: return
+	
+	emit_signal("HUD_updated")
 	
 	# Handle movement.
 	# This can probably be streamlined, but eh.
