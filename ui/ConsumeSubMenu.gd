@@ -8,6 +8,20 @@ var _cached_selected_item : Node
 var _state := "inactive" setget set_activity, get_activity
 
 
+func open_menu(entity: Entity, new_soul: Node) -> void:
+	set_activity("active")
+	_cached_entity = entity
+	_cached_selected_item = new_soul
+	
+	_update_menu()
+
+
+func close_menu() -> void:
+	set_activity("inactive")
+	_cached_entity = null
+	_cached_selected_item = null
+
+
 func set_activity(value: String) -> void:
 	_state = value
 	
@@ -19,19 +33,6 @@ func set_activity(value: String) -> void:
 
 func get_activity() -> String:
 	return _state
-
-
-func open_menu(entity: Entity, new_soul: Node) -> void:
-	set_activity("active")
-	_cached_entity = entity
-	_cached_selected_item = new_soul
-	_update_menu()
-
-
-func close_menu() -> void:
-	set_activity("inactive")
-	_cached_entity = null
-	_cached_selected_item = null
 
 
 func rotate_soul(direction: String) -> void:

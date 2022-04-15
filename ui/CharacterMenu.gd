@@ -7,16 +7,15 @@ var _state := "inactive" setget set_activity, get_activity
 
 
 func open_menu(entity: Entity) -> void:
-	var text : String
+	set_activity("active")
 	
+	var text : String
 	var job_name: String = entity.get_component("JobComponent").get_name()
 	var soul: String = entity.get_component("SoulComponent").get_soul_string()
 	
 	text = job_name + "\n" + soul
 	
 	body.set_text(text)
-	
-	set_activity("active")
 
 
 func close_menu() -> void:
@@ -25,7 +24,6 @@ func close_menu() -> void:
 
 func set_activity(value: String) -> void:
 	_state = value
-	
 	match _state:
 		"active": 	set_visible(true)
 		"dormant": 	set_visible(true)

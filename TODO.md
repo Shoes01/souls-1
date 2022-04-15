@@ -1,11 +1,17 @@
-# DONE
-PC can move
-    PC can't move through walls
-    PC can't move through units
-Enable Bump Attack
-    Can kill NPC
-ECS-detour
-    Refactored some code to be more inline with ECS patterns.
+# TESTABLE FEATURES
+PC can move around and can kill an NPC
+    Killed NPC drops an item
+
+"g" picks up an item
+
+"c" opens the character menu
+
+"i" opens the inventory
+    Items can be dropped
+
+"u" opens the consume menu
+    Soul can be selected, opening the submenu
+        Soul can be transformed and consumed
 
 ## SOULS MECHANIC
 __Done__
@@ -16,21 +22,18 @@ __Done__
     Killing an NPC drops a "Soul Jar" item containing their soul.
 - Implemented Inventory Menu
     Items may be dropped
-    [todo] differentiate between different items \\a soul-sum would do this well enough.
 - Implemented Soul Consumption Menu
     Souls may be transformed and consumed
-    [todo] need to show the end-result of consuming the new soul
     [todo] the consumption menu should show more details of the to-be consumed souls
-                inventory will show soul-sum
-                consume will show full array + soul-sum
+            inventory will show soul-sum
+            consume will show full array + soul-sum
 
 
-__Current__
-Merge redundant "open menu" and "set activity" functions.
-
-
-__Not done yet__
-Show player stats somewhere
+__Next up__
+Dispaly stats somewhere
+    Character Menu needs to display stats
+    Gameboard needs to display stats
+        Need a HUD
 
 # TODO
 Enable Ranged Attack
