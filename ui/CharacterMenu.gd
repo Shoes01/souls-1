@@ -11,7 +11,7 @@ func open_menu(entity: Entity) -> void:
 	
 	var text : String
 	var job_name: String = entity.get_component("JobComponent").get_name()
-	var soul: String = entity.get_component("SoulComponent").get_soul_string()
+	var soul: String = entity.get_stats()
 	
 	text = job_name + "\n" + soul
 	

@@ -10,6 +10,9 @@ func _on_HUD_updated() -> void:
 	
 	for child in get_tree().get_nodes_in_group("pc"):
 		# there is only one.
-		text = child.get_component("SoulComponent").get_soul_string()
+		text = child.get_stats()
 	
 	$Panel/HBoxContainer/Body.set_text(text)
+
+
+

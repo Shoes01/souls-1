@@ -31,3 +31,26 @@ func attach_component(component: Node) -> void:
 	var old_parent: Node = component.get_parent()
 	if old_parent: old_parent.remove_child(component)
 	add_child(component)
+
+
+func get_stats() -> String:
+	var soul_component = get_component("SoulComponent")
+	var job_component = get_component("JobComponent")
+	
+	if soul_component == null or job_component == null:
+		return "STATS ARE BROKEN"
+	
+	var soul = soul_component.get_soul()
+	var job_stats = job_component.get_stat_assignment()
+	
+	var result: String = ""
+	
+	for x in range(0, len(soul)):
+		for y in range(0, len(soul[0])):
+			var soul_integer = soul[x][y]
+			var job_stat = job_stats[x][y]
+			
+			result += job_stat + ": " + str(soul_integer) + "   "
+		result += "\n"
+	
+	return result

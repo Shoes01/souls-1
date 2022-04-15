@@ -48,7 +48,7 @@ func rotate_soul(direction: String) -> void:
 
 
 func _update_menu() -> void:
-	var presoul_text: String = _cached_entity.get_component("SoulComponent").get_soul_string()
+	var presoul_text: String = _cached_entity.get_stats()
 	$Panel2/HBoxContainer/VBoxContainer/PreSoul.set_text(presoul_text)
 	
 	var newsoul_text: String = _cached_selected_item.get_component("SoulComponent").get_soul_string()
@@ -57,16 +57,15 @@ func _update_menu() -> void:
 	# This code is laregly copied from the SoulComponent.
 	var presoul = _cached_entity.get_component("SoulComponent").get_soul()
 	var newsoul = _cached_selected_item.get_component("SoulComponent").get_soul()
+	var job_stats = _cached_entity.get_component("JobComponent").get_stat_assignment()
 	
 	var merged_soul_text: String = ""
 	for x in range(0, len(presoul)):
-		merged_soul_text += "["
 		for y in range(0, len(presoul[0])):
-			var value = newsoul[x][y] + presoul[x][y]
-			var string: String = "%4d, " % value
-			merged_soul_text += string
-		merged_soul_text.erase(merged_soul_text.length() - 2, 2)
-		merged_soul_text += "]\n"
+			var soul_integer = newsoul[x][y] + presoul[x][y]
+			var job_stat = job_stats[x][y]
+			merged_soul_text += job_stat + ": " + str(soul_integer) + "   "
+		merged_soul_text += "\n"
 	
 	$Panel2/HBoxContainer/VBoxContainer3/MergedSoul.set_text(merged_soul_text)
 

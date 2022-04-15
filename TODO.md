@@ -17,7 +17,6 @@ PC can move around and can kill an NPC
 __Done__
 - Implemented Entity and Components
 - Implemented Character Menu to view PC stats/soul, job
-    [todo] need to also show which stats form JobComponent match up with the soul integers
 - Implemented basic loot system
     Killing an NPC drops a "Soul Jar" item containing their soul.
 - Implemented Inventory Menu
@@ -45,3 +44,4 @@ Make all components inherit from a base Component class.
 When Debug is toggled, it just hides $Label. In the future, I may want to hide _all_ of Debug. 
 Redesign most UI nodes to have buttons, instead of double-clicking everything.
     Also allow native kb inputs - I turned this off on ConsumeMenu
+Create a custom Menu node with the open/close and setget actviate functions
