@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Map.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://systems/DeathSystem.gd" type="Script" id=10]
 [ext_resource path="res://systems/ItemPickupSystem.gd" type="Script" id=11]
 [ext_resource path="res://ui/InventoryMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://ui/ConsumeSubMenu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://ui/ConsumeMenu.tscn" type="PackedScene" id=14]
 
 [node name="Main" type="Node"]
@@ -47,6 +48,9 @@ visible = false
 visible = false
 
 [node name="ConsumeMenu" parent="UI" instance=ExtResource( 14 )]
+visible = false
+
+[node name="ConsumeSubMenu" parent="UI" instance=ExtResource( 13 )]
 visible = false
 
 [node name="Debug" type="CanvasLayer" parent="."]

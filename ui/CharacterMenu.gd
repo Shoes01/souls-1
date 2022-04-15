@@ -3,6 +3,8 @@ extends Control
 
 onready var body: Node = $Panel/VBoxContainer/Label2
 
+var _state := "inactive" setget set_activity, get_activity
+
 
 func open_menu(entity: Entity) -> void:
 	var text : String
@@ -14,12 +16,21 @@ func open_menu(entity: Entity) -> void:
 	
 	body.set_text(text)
 	
-	set_visible(true)
+	set_activity("active")
 
 
 func close_menu() -> void:
-	set_visible(false)
+	set_activity("inactive")
 
 
-func is_active() -> bool:
-	return visible
+func set_activity(value: String) -> void:
+	_state = value
+	
+	match _state:
+		"active": 	set_visible(true)
+		"dormant": 	set_visible(true)
+		"inactive": set_visible(false)
+
+
+func get_activity() -> String:
+	return _state

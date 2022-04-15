@@ -26,16 +26,11 @@ __Done__
 
 
 __Current__
-Create a ConsumePreparationMenu
-Do not make it a child of ConsumeMenu
-This means I need some sort of finite state machine. Or something.
-NESTED MENUS, how do they work
+Merge redundant "open menu" and "set activity" functions.
 
 
 __Not done yet__
-Improve UI
-    Have titles and boarders in the menus
-    Show player stats somewhere
+Show player stats somewhere
 
 # TODO
 Enable Ranged Attack

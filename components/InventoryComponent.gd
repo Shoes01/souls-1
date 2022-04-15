@@ -21,7 +21,7 @@ func add_item(item: Entity) -> void:
 	contents.append(item)
 
 
-func remove(item: Entity) -> void:
+func remove_item(item: Entity) -> void:
 	var index := 0
 	
 	for stored_item in contents:
@@ -32,7 +32,7 @@ func remove(item: Entity) -> void:
 			index += 1
 
 
-func equip(item: Entity) -> void:
+func equip_item(item: Entity) -> void:
 	# Placeholder.
 	pass
 
