@@ -6,10 +6,8 @@ extends Resource
 func generate_soul(soul_component: SoulComponent) -> Entity:
 	# Create new entity.
 	var entity : Entity = load("res://entity/Entity.gd").new()
-	entity.set_name("Soul Jar")
 	
 	# Add components.
-	
 	## Position component is part of the entity...
 	
 	## Add Sprite component.
@@ -25,5 +23,9 @@ func generate_soul(soul_component: SoulComponent) -> Entity:
 	
 	## Add Soul component.
 	entity.attach_component(soul_component)
+	
+	# Set name.
+	var name: String = "Soul Jar (" + str(soul_component.get_soul_sum()) + ")"
+	entity.set_name(name)
 	
 	return entity

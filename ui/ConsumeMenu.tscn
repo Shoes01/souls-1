@@ -26,5 +26,6 @@ margin_right = 1024.0
 margin_bottom = 600.0
 focus_mode = 0
 size_flags_vertical = 3
+max_text_lines = 5
 
 [connection signal="item_activated" from="Panel/VBoxContainer/ItemList" to="." method="_on_ItemList_item_activated"]

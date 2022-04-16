@@ -23,13 +23,6 @@ __Done__
     Items may be dropped
 - Implemented Soul Consumption Menu
     Souls may be transformed and consumed
-    [todo] the consumption menu should show more details of the to-be consumed souls
-            inventory will show soul-sum
-            consume will show full array + soul-sum
-
-
-__Next up__
-When the soul-matrix is displayed, show the relationship of soul-integer to job-stat.
 
 # TODO
 Enable Ranged Attack
@@ -45,3 +38,6 @@ When Debug is toggled, it just hides $Label. In the future, I may want to hide _
 Redesign most UI nodes to have buttons, instead of double-clicking everything.
     Also allow native kb inputs - I turned this off on ConsumeMenu
 Create a custom Menu node with the open/close and setget actviate functions
+
+# ISSUE
+ItemList cannot use \n characters, so I can't show the entire soul-matrix in the list of souls.

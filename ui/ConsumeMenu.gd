@@ -17,7 +17,7 @@ func open_menu(entity: Entity) -> void:
 	
 	for item in _cached_contents:
 		var soul_sum = item.get_component("SoulComponent").get_soul_sum()
-		var item_entry: String = item.name + " (" + str(soul_sum) + ")"
+		var item_entry: String = item.name + " :: " + item.get_component("SoulComponent").get_soul_string()
 		
 		$Panel/VBoxContainer/ItemList.add_item(item_entry)
 
