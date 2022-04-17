@@ -3,9 +3,9 @@ class_name ItemComponent
 extends Node
 
 
-var is_consumable := false
-var is_equippable := false
-var is_droppable := true
+export var is_consumable := false
+export var is_equippable := false
+export var is_droppable := true
 
 
 func _ready() -> void:

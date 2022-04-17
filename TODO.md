@@ -13,23 +13,22 @@ PC can move around and can kill an NPC
     Soul can be selected, opening the submenu
         Soul can be transformed and consumed
 
-## SOULS MECHANIC
-__Done__
-- Implemented Entity and Components
-- Implemented Character Menu to view PC stats/soul, job
-- Implemented basic loot system
-    Killing an NPC drops a "Soul Jar" item containing their soul.
-- Implemented Inventory Menu
-    Items may be dropped
-- Implemented Soul Consumption Menu
-    Souls may be transformed and consumed
-
 # TODO
-Enable Ranged Attack
-    This is a subset of a proper implementation of skills.
+Items/equipment
+Skills
+    Granted by items/equipment
+    Can be mastered and used without the item/equipment
+    Skills will cost stat points
+    Skill_1 : decrease all stats by 1, increase on stat by 4.
+Jobs
+    Can switch jobs if requirements are met
+        Requirements could be based on skills, or based on the soul
+HP-Armor
+    When HP-Armor reaches 0, the entity loses one HP, and then regains all their HP-Armor.
 Procedura map generation
-Camera that moves and follows PC
-Jobs mechanic
+Camera
+Enemy AI
+    Basic zombie-style chase AI
 
 # POLISH
 Create a proper PositionComponent.
@@ -39,5 +38,5 @@ Redesign most UI nodes to have buttons, instead of double-clicking everything.
     Also allow native kb inputs - I turned this off on ConsumeMenu
 Create a custom Menu node with the open/close and setget actviate functions
 
-# ISSUE
+# ISSUES
 ItemList cannot use \n characters, so I can't show the entire soul-matrix in the list of souls.

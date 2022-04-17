@@ -25,6 +25,11 @@ func _ready() -> void:
 	var npc2: Entity = load("res://entity/entities/NonPlayerCharacter.tscn").instance()
 	add_child(npc2)
 	npc2.position = grid.calculate_map_position(Vector2(6, 4))
+	
+	# Prepare items.
+	var knife: Entity = load("res://entity/entities/Knife.tscn").instance()
+	add_child(knife)
+	knife.position = grid.calculate_map_position(Vector2(1, 2))
 
 
 func _unhandled_input(event: InputEvent) -> void:
