@@ -7,11 +7,12 @@ extends Node2D
 
 
 var _id: int = get_instance_id()
+var _list_of_components := []
 
 
 func _ready() -> void:
-	#print("Entity is ready. ID: ", _id)
-	pass
+	for child in get_children():
+		_list_of_components.append(child.get_class())
 
 
 func get_component(value: String) -> Node:
@@ -31,6 +32,7 @@ func attach_component(component: Node) -> void:
 	var old_parent: Node = component.get_parent()
 	if old_parent: old_parent.remove_child(component)
 	add_child(component)
+	_list_of_components.append(component.get_class())
 
 
 func get_stats() -> String:
