@@ -7,8 +7,8 @@ signal game_state_has_changed()
 func _ready() -> void:
 	$InventoryMenu.connect("finished", self, "_on_finished")
 	$ConsumeMenu.connect("finished", self, "_on_finished")
-	$ConsumeSubMenu.connect("finished", self, "_on_finished")
 	$ConsumeMenu.connect("soul_chosen", $ConsumeSubMenu, "_on_soul_chosen")
+	$ConsumeSubMenu.connect("finished", self, "_on_finished")
 
 
 func _unhandled_input(event: InputEvent) -> void:

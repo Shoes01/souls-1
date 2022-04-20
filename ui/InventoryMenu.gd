@@ -6,7 +6,6 @@ enum Action {ACTION_DROP, ACTION_EQUIP}
 signal add_child_entity(item)
 signal finished()
 signal dropped(dropped_item, entity)
-signal equipped(equipped_item, entity)
 
 var _cached_contents : Array
 var _cached_entity : Entity
@@ -20,7 +19,11 @@ func open_menu(entity: Entity) -> void:
 	_cached_contents = entity.get_component("InventoryComponent").get_contents()
 	
 	for item in _cached_contents:
-		$Panel/VBoxContainer/ItemList.add_item(item.name)	
+		var item_name: String = item.name
+		if item.get_component("ItemComponent").get_equipped() == true:
+			item_name += " [EQUIPPED]"
+		
+		$Panel/VBoxContainer/ItemList.add_item(item_name)
 
 
 func close_menu() -> void:
@@ -66,6 +69,5 @@ func _on_PopupMenu_index_pressed(index: int) -> void:
 	# Equip item.
 	if index == Action.ACTION_EQUIP:
 		_cached_entity.get_component("InventoryComponent").equip_item(_cached_selected_item)
-		# Probably emit a signal here.
 		emit_signal("finished")
 

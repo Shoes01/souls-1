@@ -3,9 +3,14 @@ extends Node
 
 
 var contents: Array = [] setget set_contents, get_contents
+var equipped : Dictionary
 
 
 func _ready() -> void:
+	equipped["MAIN"] = null
+	equipped["OFF"] = null
+	equipped["HEAD"] = null
+	equipped["BODY"] = null
 	get_parent().add_to_group("inventory")
 
 
@@ -33,9 +38,11 @@ func remove_item(item: Entity) -> void:
 
 
 func equip_item(item: Entity) -> void:
-	# Placeholder.
-	pass
+	item.get_component("ItemComponent").set_equipped(true)
 
+
+func unequip_item(item: Entity) -> void:
+	item.get_component("ItemComponent").set_equipped(false)
 
 func get_class() -> String:
 	return "InventoryComponent"

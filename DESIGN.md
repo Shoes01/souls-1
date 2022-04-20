@@ -95,3 +95,42 @@ Some skills will grant offensive or defensive skills.
 Some skills will grant passive buffs. \\maybe.. this seems to go agaist using your soul to pay for everything
 ## Skill Mastery
 When a skill is mastered, it can be used regardless of Job.
+
+# CORE MECHANIC 3 -- ITEMS
+Items are needed to learn skills. Skills are needed to unlock jobs.
+
+An item would have the following properties:
+1. Each weapon will affect a fixed list of stats.
+    ex: Knife --> ATK
+    ex: Sword --> ATK, DEF
+    ex: Katana --> SPD, ATK, DEF
+    ex: Sword of Amazing --> SPD, ATK, DEF, MAG, RES, HP
+2. Each rarity will have a fixed stat-sum.
+    ex: Basic items will have a sum of 0
+    ex: Rare items will have a sum of 2
+3. Each eccentricity will have a fixed spread 
+    ex: Boring items will have a (0, 1) spread.
+    ex: Hyperbolic items will have a (-2, 4) spread.
+
+I need to be careful that a given item can be generated given a list of stats, stat-sum and eccentricity.
+
+Items will occupy slots.
+- Head
+- Body
+- Mainhand
+- Offhand
+
+# CORE MECHANIC 4 -- SKILLS
+Skill will be granted by items. Once mastered, the item won't be necessary.
+Skills will occupy a slot, just like items do.
+Skills will cost stats to use. 
+
+[question] Should skills be grindable, like in Disgaea? 
+    If so, then a mastered skill could always be usable, just at a weaker level. Essentially, an item would grant +1 skill, up to a maximum level of X.
+    If so, then each unique item granting the same skill should grant a new level for it. If Knife and Sword each grant slash, then mastering both items would give you Slash+2.
+
+    More levels in a skill would increase its effect, but not reduce costs.
+
+# META MECHANIC -- PROGRESSION
+There is no XP or Levels.
+A player will progress by learning new skills and by increasing their soul-sum.

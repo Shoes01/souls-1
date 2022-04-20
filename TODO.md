@@ -13,6 +13,17 @@ PC can move around and can kill an NPC
     Soul can be selected, opening the submenu
         Soul can be transformed and consumed
 
+# CURRENT DEV ARC -- Items/Equipment
+[x] Added a Knife entity that can be equipped
+[ ] Equip logic
+    [ ] Inherit bonuses from items \\items shouldn't grant HP, otherwise removing an item could kill you?
+
+
+
+
+
+
+
 # TODO
 Items/equipment
 Skills
