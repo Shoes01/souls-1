@@ -53,8 +53,15 @@ func unequip_item(item: Entity) -> void:
 	item.get_component("ItemComponent").set_equipped(false)
 
 
-func get_stat_bonus(stat: String) -> int:
-	return 0
+func get_equipped_bonus(stat: String) -> int:
+	var bonus := 0
+	
+	for item in contents:
+		var item_component = item.get_component("ItemComponent")
+		if item_component.get_equipped() == true:
+			bonus += item_component.get_bonus(stat)
+				
+	return bonus
 
 
 func get_class() -> String:

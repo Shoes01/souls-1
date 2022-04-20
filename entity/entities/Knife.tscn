@@ -17,3 +17,11 @@ script = ExtResource( 2 )
 script = ExtResource( 1 )
 is_equippable = true
 slot = "MAIN"
+bonus = {
+"ATK": -10,
+"DEF": 0,
+"HP": 0,
+"MAG": 0,
+"RES": 0,
+"SPD": 0
+}
