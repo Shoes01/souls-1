@@ -3,14 +3,9 @@ extends Node
 
 
 var contents: Array = [] setget set_contents, get_contents
-var equipped : Dictionary
 
 
 func _ready() -> void:
-	equipped["MAIN"] = null
-	equipped["OFF"] = null
-	equipped["HEAD"] = null
-	equipped["BODY"] = null
 	get_parent().add_to_group("inventory")
 
 
@@ -39,12 +34,27 @@ func remove_item(item: Entity) -> void:
 
 
 func equip_item(item: Entity) -> void:
-	var toggle: bool = item.get_component("ItemComponent").get_equipped()
+	var item_component: Node = item.get_component("ItemComponent")
+	var toggle: bool = item_component.get_equipped()
 	item.get_component("ItemComponent").set_equipped(!toggle)
+	
+	# Unequip any other item that occupies the same slot.
+	for stored_item in contents:
+		if stored_item._id == item._id: continue
+		
+		var stored_item_component: Node = stored_item.get_component("ItemComponent")
+		
+		if (stored_item_component.get_equipped() == true
+		and stored_item_component.get_slot() == item_component.get_slot()):
+			stored_item_component.set_equipped(false)
 
 
 func unequip_item(item: Entity) -> void:
 	item.get_component("ItemComponent").set_equipped(false)
+
+
+func get_stat_bonus(stat: String) -> int:
+	return 0
 
 
 func get_class() -> String:

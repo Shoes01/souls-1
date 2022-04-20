@@ -30,6 +30,9 @@ func _ready() -> void:
 	var knife: Entity = load("res://entity/entities/Knife.tscn").instance()
 	add_child(knife)
 	knife.position = grid.calculate_map_position(Vector2(1, 2))
+	var knife2: Entity = load("res://entity/entities/Knife.tscn").instance()
+	add_child(knife2)
+	knife2.position = grid.calculate_map_position(Vector2(1, 5))
 
 
 func _unhandled_input(event: InputEvent) -> void:
