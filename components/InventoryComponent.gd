@@ -27,8 +27,9 @@ func add_item(item: Entity) -> void:
 
 
 func remove_item(item: Entity) -> void:
-	var index := 0
+	unequip_item(item)
 	
+	var index := 0
 	for stored_item in contents:
 		if item._id == stored_item._id:
 			contents.remove(index)
@@ -38,11 +39,13 @@ func remove_item(item: Entity) -> void:
 
 
 func equip_item(item: Entity) -> void:
-	item.get_component("ItemComponent").set_equipped(true)
+	var toggle: bool = item.get_component("ItemComponent").get_equipped()
+	item.get_component("ItemComponent").set_equipped(!toggle)
 
 
 func unequip_item(item: Entity) -> void:
 	item.get_component("ItemComponent").set_equipped(false)
+
 
 func get_class() -> String:
 	return "InventoryComponent"
